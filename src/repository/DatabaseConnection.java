@@ -14,10 +14,9 @@ public class DatabaseConnection {
     private DatabaseConnection() {
         url = "jdbc:postgresql://localhost:5432/food_delivery_bd";
         user = "postgres";
-        password = "YOUR_PASSWORD";
+        password = Password.password;
         try {
             connection = DriverManager.getConnection(url, user, password);
-            System.out.println("Conexiunea la baza de date a fost realizata cu succes!");
         } catch (SQLException e) {
             System.err.println("Eroare la conectarea cu baza de date: " + e.getMessage());
         }
