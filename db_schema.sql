@@ -13,7 +13,11 @@ CREATE TABLE users (
     email VARCHAR(100) UNIQUE NOT NULL,
     parola VARCHAR(255) NOT NULL,
     tip_user VARCHAR(50) NOT NULL, -- 'Admin', 'Client', 'Curier'
-    este_disponibil BOOLEAN DEFAULT true -- folosit doar pentru Curier
+    este_disponibil BOOLEAN DEFAULT true, -- folosit doar pentru Curier
+    adresa_oras VARCHAR(100), -- folosit doar pentru Client
+    adresa_strada VARCHAR(150), -- folosit doar pentru Client
+    adresa_numar INTEGER, -- folosit doar pentru Client
+    tip_vehicul VARCHAR(50) -- folosit doar pentru Curier
 );
 
 -- 2. Tabelul pentru 'Restaurant'
@@ -34,7 +38,10 @@ CREATE TABLE produse (
     descriere TEXT,
     pret DECIMAL(10, 2) NOT NULL,
     calorii INTEGER,
-    tip_produs VARCHAR(50) NOT NULL 
+    tip_produs VARCHAR(50) NOT NULL,
+    mancare_gramaj DECIMAL(10, 2), -- folosit doar pentru Mancare
+    bautura_volum INTEGER, -- folosit doar pentru Bautura
+    bautura_contine_alcool BOOLEAN -- folosit doar pentru Bautura
 );
 
 -- 4. Tabelul pentru 'Comanda'

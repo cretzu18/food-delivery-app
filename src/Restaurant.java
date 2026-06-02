@@ -3,6 +3,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Restaurant implements Comparable<Restaurant>{
+    private int id;
     private String nume;
     private String specific;
     private double rating;
@@ -15,6 +16,14 @@ public class Restaurant implements Comparable<Restaurant>{
         this.rating = 0.0;
         this.numarRecenzii = 0;
         this.meniu = new ArrayList<>();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNume() {

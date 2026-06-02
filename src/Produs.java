@@ -1,4 +1,5 @@
 public abstract class Produs implements Comparable<Produs>{
+    private int id;
     private String nume;
     private String descriere;
     protected double pret;
@@ -10,6 +11,14 @@ public abstract class Produs implements Comparable<Produs>{
         this.descriere = descriere;
         this.pret = pret;
         this.calorii = calorii;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Restaurant getRestaurant() {

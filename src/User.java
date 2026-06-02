@@ -1,4 +1,5 @@
 public abstract class User {
+    private int id;
     private String nume;
     private String telefon;
     private String email;
@@ -9,6 +10,14 @@ public abstract class User {
         this.telefon = telefon;
         this.email = email;
         this.parola = parola;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNume() {

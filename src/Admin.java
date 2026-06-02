@@ -1,9 +1,11 @@
 public class Admin extends User{
     Admin() {
-        super("admin", "admin@delivery.ro", "1111", "admin");
+        super();
+        this.tipUser = "admin";
     }
 
     public Admin(String nume, String email, String telefon, String parola) {
         super(nume, email, telefon, parola);
+        this.tipUser = "admin";
     }
 }

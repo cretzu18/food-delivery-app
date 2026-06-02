@@ -4,8 +4,7 @@ import java.util.Map;
 import java.time.LocalDateTime;
 
 public class Comanda {
-    private static int contorId = 1000;
-    private int idComanda;
+    private int id;
     private Client client;
     private Adresa adresa;
     private Curier curier;
@@ -16,7 +15,6 @@ public class Comanda {
     private double pretTotal;
 
     public Comanda(Client client, Restaurant restaurant, Adresa adresa, Map<Produs, Integer> cosCumaparturi) {
-        this.idComanda = contorId++;
         this.client = client;
         this.restaurant = restaurant;
         this.adresa = adresa;
@@ -47,8 +45,12 @@ public class Comanda {
         this.status = status;
     }
 
-    public int getIdComanda() {
-        return idComanda;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getStatus() {
@@ -59,9 +61,37 @@ public class Comanda {
         return restaurant;
     }
 
+    public Client getClient() {
+        return client;
+    }
+
+    public Adresa getAdresa() {
+        return adresa;
+    }
+
+    public Map<Produs, Integer> getProduseComandate() {
+        return produseComandate;
+    }
+
+    public LocalDateTime getDataPlasarii() {
+        return dataPlasarii;
+    }
+
+    public void setDataPlasarii(LocalDateTime dataPlasarii) {
+        this.dataPlasarii = dataPlasarii;
+    }
+
+    public double getPretTotal() {
+        return pretTotal;
+    }
+
+    public void setPretTotal(double pretTotal) {
+        this.pretTotal = pretTotal;
+    }
+
     @Override
     public String toString() {
-        return "Comanda " + idComanda + ", plasata la " + dataPlasarii +
+        return "Comanda " + id + ", plasata la " + dataPlasarii +
                 ", Status: " + status + ", Pret: " + calculeazaPret();
     }
 }
