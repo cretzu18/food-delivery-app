@@ -1,3 +1,6 @@
+import model.*;
+import repository.*;
+import service.*;
 import java.util.Scanner;
 
 public class Main {
@@ -5,8 +8,6 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        populareDate(service);
-
         boolean running = true;
         while (running) {
             System.out.println("\n--- FOOD DELIVERY APP ---\n");
