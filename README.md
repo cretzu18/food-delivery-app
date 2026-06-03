@@ -4,7 +4,7 @@ Proiect Java ce simuleaza o aplicatie completa de Food Delivery, cu interfata in
 
 ## Demo Video
 
--- de adaugat link video cu demo --
+[Click aici](https://youtu.be/X_I_6rmvIyE)
 
 ## Arhitectura Proiectului (MVC)
 - **`model` (Entitati)**: Pachetul ce contine clasele de baza si structura obiectelor.
