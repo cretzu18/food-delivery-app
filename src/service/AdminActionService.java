@@ -9,9 +9,9 @@ public class AdminActionService {
     private ProdusService produsService;
 
     public AdminActionService() {
-        this.userService = new UserService();
-        this.restaurantService = new RestaurantService();
-        this.produsService = new ProdusService();
+        this.userService = UserService.getInstance();
+        this.restaurantService = RestaurantService.getInstance();
+        this.produsService = ProdusService.getInstance();
     }
 
     private boolean checkAdmin() {

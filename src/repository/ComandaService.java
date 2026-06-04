@@ -12,6 +12,15 @@ import java.util.Map;
 
 public class ComandaService implements GenericService<Comanda> {
 
+    private static ComandaService instance;
+    private ComandaService() {}
+    public static ComandaService getInstance() {
+        if (instance == null) {
+            instance = new ComandaService();
+        }
+        return instance;
+    }
+
     @Override
     public void create(Comanda entity) {
         String sqlComanda = "INSERT INTO comenzi (client_id, curier_id, restaurant_id, adresa_oras, adresa_strada, adresa_numar, status, data_plasarii, pret_total) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -128,9 +137,9 @@ public class ComandaService implements GenericService<Comanda> {
 
     // Metoda auxiliara pentru a converti randul din DB intr-un obiect Comanda
     private Comanda mapResultSetToComanda(ResultSet rs) throws SQLException {
-        UserService userService = new UserService();
-        RestaurantService restaurantService = new RestaurantService();
-        ProdusService produsService = new ProdusService();
+        UserService userService = UserService.getInstance();
+        RestaurantService restaurantService = RestaurantService.getInstance();
+        ProdusService produsService = ProdusService.getInstance();
         
         int id = rs.getInt("id");
         int clientId = rs.getInt("client_id");

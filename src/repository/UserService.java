@@ -8,6 +8,15 @@ import java.util.List;
 
 public class UserService implements GenericService<User> {
     
+    private static UserService instance;
+    private UserService() {}
+    public static UserService getInstance() {
+        if (instance == null) {
+            instance = new UserService();
+        }
+        return instance;
+    }
+
     @Override 
     public void create(User entity) {
         String sql = """

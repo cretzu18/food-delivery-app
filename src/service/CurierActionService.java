@@ -8,8 +8,8 @@ public class CurierActionService {
     private UserService userService;
 
     public CurierActionService() {
-        this.comandaService = new ComandaService();
-        this.userService = new UserService();
+        this.comandaService = ComandaService.getInstance();
+        this.userService = UserService.getInstance();
     }
 
     private Curier checkCurier() {

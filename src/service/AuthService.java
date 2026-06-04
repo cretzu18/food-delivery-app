@@ -9,7 +9,7 @@ public class AuthService {
     private UserService userService;
 
     private AuthService() {
-        this.userService = new UserService();
+        this.userService = UserService.getInstance();
     }
 
     public static AuthService getInstance() {

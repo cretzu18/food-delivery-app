@@ -4,6 +4,16 @@ import java.sql.*;
 import java.util.*;
 
 public class RestaurantService implements GenericService<Restaurant> {
+    
+    private static RestaurantService instance;
+    private RestaurantService() {}
+    public static RestaurantService getInstance() {
+        if (instance == null) {
+            instance = new RestaurantService();
+        }
+        return instance;
+    }
+
     @Override
     public void create(Restaurant entity) {
         String sql = "INSERT INTO restaurante (nume, specific, rating, numar_recenzii) VALUES (?, ?, ?, ?)";

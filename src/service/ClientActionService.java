@@ -13,10 +13,10 @@ public class ClientActionService {
     private ComandaService comandaService;
 
     public ClientActionService() {
-        this.userService = new UserService();
-        this.restaurantService = new RestaurantService();
-        this.produsService = new ProdusService();
-        this.comandaService = new ComandaService();
+        this.userService = UserService.getInstance();
+        this.restaurantService = RestaurantService.getInstance();
+        this.produsService = ProdusService.getInstance();
+        this.comandaService = ComandaService.getInstance();
     }
 
     private Client checkClient() {

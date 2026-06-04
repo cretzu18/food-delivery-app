@@ -9,6 +9,15 @@ import java.util.List;
 
 public class ProdusService implements GenericService<Produs> {
 
+    private static ProdusService instance;
+    private ProdusService() {}
+    public static ProdusService getInstance() {
+        if (instance == null) {
+            instance = new ProdusService();
+        }
+        return instance;
+    }
+
     @Override
     public void create(Produs entity) {
         String sql = "INSERT INTO produse (restaurant_id, nume, descriere, pret, calorii, tip_produs, mancare_gramaj, bautura_volum, bautura_contine_alcool) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -58,7 +67,7 @@ public class ProdusService implements GenericService<Produs> {
     public List<Produs> read() {
         String sql = "SELECT * FROM produse";
         List<Produs> produse = new ArrayList<>();
-        RestaurantService restaurantService = new RestaurantService();
+        RestaurantService restaurantService = RestaurantService.getInstance();
         
         try (PreparedStatement pstmt = DatabaseConnection.getInstance().getConnection().prepareStatement(sql)) {
             ResultSet rs = pstmt.executeQuery();
@@ -75,7 +84,7 @@ public class ProdusService implements GenericService<Produs> {
     @Override
     public Produs readOneEntity(int id) {
         String sql = "SELECT * FROM produse WHERE id = ?";
-        RestaurantService restaurantService = new RestaurantService();
+        RestaurantService restaurantService = RestaurantService.getInstance();
 
         try (PreparedStatement pstmt = DatabaseConnection.getInstance().getConnection().prepareStatement(sql)) {
             pstmt.setInt(1, id);
