@@ -73,5 +73,26 @@ public class AdminActionService {
             System.out.println("Eroare: restaurantul '" + numeRestaurant + "' nu exista in baza de date!");
         }
     }
+
+    public void adminStergeRestaurant(String numeRestaurant) {
+        if (!checkAdmin()) return;
+
+        List<Restaurant> restaurante = restaurantService.read();
+        Restaurant restaurantFound = null;
+        for (Restaurant r : restaurante) {
+            if (r.getNume().equalsIgnoreCase(numeRestaurant)) {
+                restaurantFound = r;
+                break;
+            }
+        }
+
+        if (restaurantFound != null) {
+            produsService.deleteByRestaurantId(restaurantFound.getId());
+            restaurantService.delete(restaurantFound.getId());
+            System.out.println("Restaurantul '" + numeRestaurant + "' a fost sters cu succes!");
+        } else {
+            System.out.println("Eroare: restaurantul '" + numeRestaurant + "' nu exista in baza de date!");
+        }
+    }
 }
 

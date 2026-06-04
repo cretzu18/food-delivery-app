@@ -28,6 +28,7 @@ public class AdminUI {
                 System.out.println("4. Vezi toti utlizatorii");
                 System.out.println("5. Vezi restaurante");
                 System.out.println("6. Vezi produse");
+                System.out.println("7. Sterge restaurant");
                 System.out.println("0. Logout");
                 System.out.print("Optiune: ");
 
@@ -99,6 +100,14 @@ public class AdminUI {
                         System.out.print("Restaurantul pentru care vrei sa vezi produsele: ");
                         String restaurant = scanner.nextLine();
                         service.afiseazaProduse(restaurant);
+                        break;
+
+                    case 7:
+                        CsvExportService.scrieAudit("admin_sterge_restaurant");
+                        service.afiseazaRestaurante();
+                        System.out.print("Numele restaurantului de sters: ");
+                        String numeRestSters = scanner.nextLine();
+                        service.adminStergeRestaurant(numeRestSters);
                         break;
 
                     case 0:

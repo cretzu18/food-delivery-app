@@ -135,6 +135,18 @@ public class ProdusService implements GenericService<Produs> {
         }
     }
 
+    public void deleteByRestaurantId(int restaurantId) {
+        String sql = "DELETE FROM produse WHERE restaurant_id = ?";
+        
+        try (PreparedStatement pstmt = DatabaseConnection.getInstance().getConnection().prepareStatement(sql)) {
+            pstmt.setInt(1, restaurantId);
+            int rowsAffected = pstmt.executeUpdate();
+            System.out.println("S-au sters " + rowsAffected + " produse apartinand restaurantului.");
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     private Produs mapResultSetToProdus(ResultSet rs, RestaurantService rsService) throws SQLException {
         String tipProdus = rs.getString("tip_produs");
         Produs produs = null;

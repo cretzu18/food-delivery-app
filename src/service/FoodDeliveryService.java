@@ -47,6 +47,10 @@ public class FoodDeliveryService {
     public void adminAdaugaProdus(String numeRestaurant, Produs produs) {
         adminService.adminAdaugaProdus(numeRestaurant, produs);
     }
+
+    public void adminStergeRestaurant(String numeRestaurant) {
+        adminService.adminStergeRestaurant(numeRestaurant);
+    }
     // END OPERATII ADMIN
 
     // OPERATII CLIENT
